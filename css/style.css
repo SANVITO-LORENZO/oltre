@@ -29,10 +29,11 @@ body.light-mode {
     box-sizing: border-box; 
 }
 
-/* FIX SCOLL LATERALE: Applichiamo il blocco sia a html che a body */
+/* FIX SCOLL LATERALE ESTREMO */
 html, body {
     overflow-x: hidden;
     width: 100%;
+    max-width: 100vw;
     position: relative;
 }
 
@@ -166,14 +167,18 @@ footer { padding: 40px 0; text-align: center; color: var(--text-dim); border-top
     .nav-links {
         position: fixed; 
         top: 75px; 
-        right: -100%; /* FIX: Lo nasconde fisicamente fuori dallo schermo */
+        right: -100%; 
         width: 100%; 
         height: calc(100vh - 75px);
-        background: var(--bg); /* FIX: Sfondo solido per non far trasparire il testo */
+        background: var(--bg); 
         flex-direction: column; 
         justify-content: flex-start;
         padding: 40px 20px; 
-        transition: right 0.4s ease-in-out;
+        
+        /* LA MAGIA CHE BLOCCA LO SCROLL: */
+        visibility: hidden; 
+        transition: right 0.4s ease-in-out, visibility 0.4s ease-in-out;
+        
         z-index: 999; 
         border-top: 1px solid rgba(255,255,255,0.05);
     }
@@ -181,7 +186,8 @@ footer { padding: 40px 0; text-align: center; color: var(--text-dim); border-top
     .nav-links li { margin-bottom: 20px; }
     
     .nav-links.active { 
-        right: 0; /* FIX: Lo fa scivolare dentro lo schermo */ 
+        right: 0; 
+        visibility: visible; /* Rende visibile il menu solo quando cliccato */
     }
 
     .hero-section { text-align: center; padding: 60px 0; }
