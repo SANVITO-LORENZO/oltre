@@ -46,7 +46,12 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+/* FIX MARGINI LATERALI: Invece del padding, usiamo una larghezza percentuale */
+.container { 
+    width: 88%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
 
 /* =========================================
    HEADER & NAVBAR
@@ -174,21 +179,14 @@ footer { padding: 40px 0; text-align: center; color: var(--text-dim); border-top
         flex-direction: column; 
         justify-content: flex-start;
         padding: 40px 20px; 
-        
-        /* LA MAGIA CHE BLOCCA LO SCROLL: */
         visibility: hidden; 
         transition: right 0.4s ease-in-out, visibility 0.4s ease-in-out;
-        
         z-index: 999; 
         border-top: 1px solid rgba(255,255,255,0.05);
     }
     
     .nav-links li { margin-bottom: 20px; }
-    
-    .nav-links.active { 
-        right: 0; 
-        visibility: visible; /* Rende visibile il menu solo quando cliccato */
-    }
+    .nav-links.active { right: 0; visibility: visible; }
 
     .hero-section { text-align: center; padding: 60px 0; }
     .hero-text p { margin: 0 auto 30px; }
