@@ -29,21 +29,23 @@ body.light-mode {
     box-sizing: border-box; 
 }
 
+/* FIX SCOLL LATERALE: Applichiamo il blocco sia a html che a body */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
 body {
     background-color: var(--bg);
     color: var(--text);
     font-family: 'Outfit', sans-serif;
     line-height: 1.6;
-    overflow-x: hidden;
     scroll-behavior: smooth;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.container { 
-    max-width: 1200px; 
-    margin: 0 auto; 
-    padding: 0 20px; 
-}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
 /* =========================================
    HEADER & NAVBAR
@@ -56,26 +58,13 @@ body {
     position: sticky; top: 0; z-index: 1000;
 }
 
-nav { 
-    display: flex; justify-content: space-between; align-items: center; 
-}
+nav { display: flex; justify-content: space-between; align-items: center; }
 
-.brand { 
-    font-size: 2rem; font-weight: 900; color: var(--text); 
-    text-decoration: none; letter-spacing: -1px; 
-}
-
+.brand { font-size: 2rem; font-weight: 900; color: var(--text); text-decoration: none; letter-spacing: -1px; }
 .brand span { color: var(--accent); }
 
-.nav-links { 
-    list-style: none; display: flex; gap: 40px; align-items: center; 
-}
-
-.nav-links a { 
-    text-decoration: none; color: var(--text-dim); 
-    font-weight: 600; transition: color 0.3s ease; 
-}
-
+.nav-links { list-style: none; display: flex; gap: 40px; align-items: center; }
+.nav-links a { text-decoration: none; color: var(--text-dim); font-weight: 600; transition: color 0.3s ease; }
 .nav-links a:hover { color: var(--text); }
 
 .menu-btn, .theme-btn {
@@ -175,17 +164,25 @@ footer { padding: 40px 0; text-align: center; color: var(--text-dim); border-top
     .menu-btn { display: block; } 
     
     .nav-links {
-        position: fixed; top: 75px; right: 0;
-        transform: translateX(100%); /* Nascosto a destra */
-        width: 100%; height: calc(100vh - 75px);
-        background: var(--bg); /* Sfondo pieno anti-bug per mobile */
-        flex-direction: column; justify-content: flex-start;
-        padding: 40px 20px; transition: transform 0.4s ease-in-out;
-        z-index: 999; border-top: 1px solid rgba(255,255,255,0.05);
+        position: fixed; 
+        top: 75px; 
+        right: -100%; /* FIX: Lo nasconde fisicamente fuori dallo schermo */
+        width: 100%; 
+        height: calc(100vh - 75px);
+        background: var(--bg); /* FIX: Sfondo solido per non far trasparire il testo */
+        flex-direction: column; 
+        justify-content: flex-start;
+        padding: 40px 20px; 
+        transition: right 0.4s ease-in-out;
+        z-index: 999; 
+        border-top: 1px solid rgba(255,255,255,0.05);
     }
     
     .nav-links li { margin-bottom: 20px; }
-    .nav-links.active { transform: translateX(0); /* Entra nello schermo */ }
+    
+    .nav-links.active { 
+        right: 0; /* FIX: Lo fa scivolare dentro lo schermo */ 
+    }
 
     .hero-section { text-align: center; padding: 60px 0; }
     .hero-text p { margin: 0 auto 30px; }
@@ -193,13 +190,11 @@ footer { padding: 40px 0; text-align: center; color: var(--text-dim); border-top
 }
 
 @media (max-width: 768px) {
-    /* Testi ridotti per non uscire dallo schermo */
     .gradient-text { font-size: 2.2rem; }
     .hero-text p { font-size: 1.1rem; }
     .section-title h2 { font-size: 2rem; }
     .large-p { font-size: 1.1rem; }
     
-    /* Riduzione drastica dei padding per rimpicciolire i riquadri giganti */
     .cta-card { padding: 30px 20px; }
     .cta-card h3 { font-size: 1.5rem; }
     
