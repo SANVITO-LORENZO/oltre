@@ -29,11 +29,9 @@ body.light-mode {
     box-sizing: border-box; 
 }
 
-/* FIX SCOLL LATERALE ESTREMO */
+/* FIX SCOLL LATERALE: Mantiene la pagina bloccata senza bug su PC */
 html, body {
     overflow-x: hidden;
-    width: 100%;
-    max-width: 100vw;
     position: relative;
 }
 
@@ -46,7 +44,7 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* FIX MARGINI LATERALI: Invece del padding, usiamo una larghezza percentuale */
+/* FIX MARGINI LATERALI: Usiamo la larghezza in percentuale */
 .container { 
     width: 88%; 
     max-width: 1200px; 
@@ -172,21 +170,24 @@ footer { padding: 40px 0; text-align: center; color: var(--text-dim); border-top
     .nav-links {
         position: fixed; 
         top: 75px; 
-        right: -100%; 
+        right: 0; /* Ancorato a destra */
+        transform: translateX(100%); /* Spostato visivamente fuori schermo */
         width: 100%; 
         height: calc(100vh - 75px);
-        background: var(--bg); 
+        background: var(--bg); /* Sfondo pieno, risolve il testo che si sovrappone */
         flex-direction: column; 
         justify-content: flex-start;
         padding: 40px 20px; 
-        visibility: hidden; 
-        transition: right 0.4s ease-in-out, visibility 0.4s ease-in-out;
+        transition: transform 0.4s ease-in-out; /* Animazione pulita sulla scheda video */
         z-index: 999; 
         border-top: 1px solid rgba(255,255,255,0.05);
     }
     
     .nav-links li { margin-bottom: 20px; }
-    .nav-links.active { right: 0; visibility: visible; }
+    
+    .nav-links.active { 
+        transform: translateX(0); /* Lo riporta perfettamente dentro lo schermo */
+    }
 
     .hero-section { text-align: center; padding: 60px 0; }
     .hero-text p { margin: 0 auto 30px; }
