@@ -14,12 +14,17 @@
     <header class="main-header">
         <nav class="container">
             <a href="index.html" class="brand">OLTRE<span>.</span></a>
-            <ul class="nav-links">
+            
+            <button id="menu-toggle" class="menu-btn" aria-label="Apri Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul id="nav-links" class="nav-links">
                 <li><a href="#vision">La Vision</a></li>
                 <li><a href="#progetto">Il Progetto</a></li>
                 <li><a href="#team">Team</a></li>
                 <li>
-                    <button id="theme-toggle" class="theme-btn">
+                    <button id="theme-toggle" class="theme-btn" aria-label="Cambia Tema">
                         <i id="theme-icon" class="fa-solid fa-moon"></i>
                     </button>
                 </li>
@@ -32,8 +37,8 @@
         <section class="hero-section">
             <div class="container hero-grid">
                 <div class="hero-text">
-                    <h1 class="gradient-text">Oltre ogni limite informativo.</h1>
-                    <p>La piattaforma definitiva per l'inclusione digitale. Nata per trasformare la complessità burocratica in autonomia quotidiana.</p>
+                    <h1 class="gradient-text">La tua guida verso l'autonomia.</h1>
+                    <p>Basta ricerche infinite tra siti istituzionali e moduli complessi. Oltre centralizza diritti, agevolazioni e servizi per la disabilità in un'unica piattaforma personalizzata.</p>
                     <div class="status-box">
                         <span class="dot"></span> App in fase di sviluppo (2026)
                     </div>
@@ -43,14 +48,49 @@
 
         <section id="vision" class="vision-section container">
             <div class="section-title">
-                <h2>Oltre la disabilità, verso l'autonomia</h2>
+                <h2>Oltre la disabilità</h2>
                 <div class="line"></div>
             </div>
-            <p class="large-p">
-                Il nostro obiettivo è abbattere le barriere invisibili dell'informazione. 
-                Forniamo una piattaforma centralizzata per diritti, benefici e servizi, personalizzata 
-                per ogni esigenza specifica.
-            </p>
+            <p class="large-p">L'obiettivo è abbattere le barriere invisibili dell'informazione. Oltre trasforma il caos burocratico in un percorso chiaro, restituendo tempo e consapevolezza a chi ne ha più bisogno.</p>
+        </section>
+
+        <section id="progetto" class="project-detail container">
+            <div class="section-title">
+                <h2>Perché Oltre?</h2>
+                <div class="line"></div>
+            </div>
+            <div class="project-info">
+                <p class="large-p">Oggi trovare informazioni affidabili richiede ore di ricerca. Oltre centralizza i contenuti ufficiali, dai benefici economici ai supporti sanitari, garantendo aggiornamenti costanti e affidabilità totale.</p>
+            </div>
+        </section>
+
+        <section class="benefits container">
+            <div class="section-title">
+                <h2>Cosa ottieni con Oltre</h2>
+                <p>I vantaggi reali dell'inclusione digitale.</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fa-solid fa-clock"></i>
+                    <h3>Zero tempo perso</h3>
+                    <p>Basta navigare tra decine di siti diversi. Trovi ogni risposta in un unico punto di riferimento.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fa-solid fa-bullseye"></i>
+                    <h3>Informazione su misura</h3>
+                    <p>Ricevi solo le comunicazioni e le agevolazioni che riguardano il tuo specifico profilo.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3>Sempre aggiornato</h3>
+                    <p>Notifiche push istantanee su ogni novità normativa o nuovo bando economico disponibile.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fa-solid fa-street-view"></i>
+                    <h3>Vivi il territorio</h3>
+                    <p>Una mappa interattiva per localizzare servizi accessibili e associazioni pronte a supportarti.</p>
+                </div>
+            </div>
         </section>
 
         <section id="partnership" class="cta-section">
@@ -87,7 +127,7 @@
                 </div>
                 <div class="member-card">
                     <div class="member-info">
-                        <h3>[Nome Socio 2]</h3>
+                        <h3>Nicolò Grisoni</h3>
                         <span>Co-Founder & Lead Designer</span>
                         <div class="member-social">
                             <a href="#" target="_blank"><i class="fa-brands fa-github"></i></a>
